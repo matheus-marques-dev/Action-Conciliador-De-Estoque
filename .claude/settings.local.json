@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(cd \"c:\\\\Users\\\\Murilo\\\\Desktop\\\\controlador-estoque\\\\frontend\"; Start-Process -FilePath \"cmd\" -ArgumentList \"/c npm run dev\" -PassThru | ForEach-Object { Write-Host \"Frontend PID: $\\($_.Id\\)\" })"
+    ]
+  }
+}

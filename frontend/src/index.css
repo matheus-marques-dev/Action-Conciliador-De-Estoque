@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-slate-50 text-slate-800 antialiased; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply relative overflow-hidden inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200 active:scale-95;
+  }
+  .btn-outline {
+    @apply relative overflow-hidden inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 hover:border-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200 active:scale-95;
+  }
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+  }
+  .input {
+    @apply block w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm placeholder-slate-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all duration-200;
+  }
+  .label {
+    @apply mb-1 block text-sm font-medium text-slate-700;
+  }
+}
+
+/* ── Core keyframes ─────────────────────────────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes scaleInBounce {
+  0%   { opacity: 0; transform: scale(0.7); }
+  60%  { transform: scale(1.08); }
+  80%  { transform: scale(0.97); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes countPop {
+  0%   { opacity: 0; transform: scale(0.65) translateY(10px); }
+  65%  { transform: scale(1.1) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ── Float / glow ───────────────────────────────────────────────────────────── */
+@keyframes float {
+  0%,100% { transform: translateY(0px) rotate(0deg); }
+  33%      { transform: translateY(-12px) rotate(2deg); }
+  66%      { transform: translateY(-6px) rotate(-1.5deg); }
+}
+@keyframes logoGlow {
+  0%,100% { filter: drop-shadow(0 0 0px rgba(129,140,248,0)); }
+  50%      { filter: drop-shadow(0 0 24px rgba(129,140,248,0.85)); }
+}
+@keyframes pulseRed {
+  0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.3); }
+  50%      { box-shadow: 0 0 0 8px rgba(239,68,68,0); }
+}
+@keyframes gradientShift {
+  0%,100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* ── Particles ──────────────────────────────────────────────────────────────── */
+@keyframes drift-a { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(14px,-26px) scale(1.2)} }
+@keyframes drift-b { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-18px,-18px) scale(0.85)} }
+@keyframes drift-c { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(9px,-34px) scale(1.1)} }
+@keyframes drift-d { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-12px,-22px) scale(1.15)} }
+@keyframes drift-e { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(24px,-14px) scale(0.9)} }
+
+/* ── Typewriter cursor ──────────────────────────────────────────────────────── */
+@keyframes cursorBlink {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+.cursor-blink { animation: cursorBlink 0.65s step-end infinite; }
+
+/* ── Loading ring ───────────────────────────────────────────────────────────── */
+@keyframes ringRotate {
+  from { transform: rotate(-90deg); }
+  to   { transform: rotate(270deg); }
+}
+@keyframes progressFill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+@keyframes stepCheck {
+  from { stroke-dashoffset: 22; opacity: 0; }
+  to   { stroke-dashoffset: 0;  opacity: 1; }
+}
+
+/* ── Table row stagger ──────────────────────────────────────────────────────── */
+@keyframes rowIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Drag upload ────────────────────────────────────────────────────────────── */
+@keyframes dragPulse {
+  0%,100% { box-shadow: 0 0 0 3px rgba(99,102,241,0.25), inset 0 0 30px rgba(99,102,241,0.05); }
+  50%      { box-shadow: 0 0 0 8px rgba(99,102,241,0.08), inset 0 0 40px rgba(99,102,241,0.08); }
+}
+@keyframes bounceIcon {
+  0%,100% { transform: translateY(0); }
+  40%      { transform: translateY(-8px); }
+  70%      { transform: translateY(-4px); }
+}
+@keyframes drawCheck {
+  from { stroke-dashoffset: 40; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* ── Segment bar ────────────────────────────────────────────────────────────── */
+@keyframes segGrow {
+  from { width: 0; opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Shimmer ────────────────────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ── Utility classes ─────────────────────────────────────────────────────────── */
+.animate-fade-in      { animation: fadeIn       0.35s ease-out both; }
+.animate-fade-in-up   { animation: fadeInUp     0.55s ease-out both; }
+.animate-fade-in-dn   { animation: fadeInDown   0.45s ease-out both; }
+.animate-scale-in     { animation: scaleIn      0.40s ease-out both; }
+.animate-bounce-in    { animation: scaleInBounce 0.55s ease-out both; }
+.animate-slide-right  { animation: slideInRight 0.45s ease-out both; }
+.animate-slide-left   { animation: slideInLeft  0.45s ease-out both; }
+.animate-count-pop    { animation: countPop     0.55s ease-out both; }
+.animate-float        { animation: float        5s ease-in-out infinite; }
+.animate-logo-glow    { animation: logoGlow     2.8s ease-in-out infinite; }
+.pulse-critical       { animation: pulseRed     2.2s ease-in-out infinite; }
+
+/* Delay helpers */
+.delay-0   { animation-delay:   0ms; }
+.delay-75  { animation-delay:  75ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-225 { animation-delay: 225ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-375 { animation-delay: 375ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-450 { animation-delay: 450ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #a5b4fc 0%, #c4b5fd 45%, #f9a8d4 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 7s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero grid overlay */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Glow orb */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  pointer-events: none;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* Drag active state */
+.drag-active {
+  border-color: #6366f1 !important;
+  animation: dragPulse 1.6s ease-in-out infinite;
+}
+
+/* Shimmer skeleton */
+.shimmer {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+/* Table row animation */
+.row-animated {
+  animation: rowIn 0.35s ease-out both;
+}
+
+/* Ring SVG spin */
+.ring-spin {
+  transform-origin: center;
+  animation: ringRotate 1.3s linear infinite;
+}
+
+/* Step progress bar fill */
+.progress-fill {
+  animation: progressFill 0.6s ease-out forwards;
+}
+
+/* Upload icon bounce when dragging */
+.icon-bounce { animation: bounceIcon 1.2s ease-in-out infinite; }
+
+/* Success check draw */
+.check-draw {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: drawCheck 0.5s 0.1s ease-out forwards;
+}

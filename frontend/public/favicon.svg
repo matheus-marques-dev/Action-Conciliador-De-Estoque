@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <!-- Background: mirrors the site hero slate-950→indigo-950→violet-950 -->
+    <linearGradient id="bg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#0f0c29"/>
+      <stop offset="52%"  stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#2e1065"/>
+    </linearGradient>
+    <!-- Indigo gloss — top-left light source -->
+    <radialGradient id="gl" cx="30%" cy="24%" r="56%" gradientUnits="objectBoundingBox">
+      <stop offset="0%"   stop-color="#a5b4fc" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#a5b4fc" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Depth shadow — bottom-right -->
+    <radialGradient id="sh" cx="74%" cy="78%" r="54%" gradientUnits="objectBoundingBox">
+      <stop offset="0%"   stop-color="#000" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Beacon dot: white core → soft indigo halo -->
+    <radialGradient id="dot" cx="40%" cy="35%" r="65%" gradientUnits="objectBoundingBox">
+      <stop offset="0%"   stop-color="white"   stop-opacity="1"/>
+      <stop offset="70%"  stop-color="#e0e7ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Soft blur for glow layer -->
+    <filter id="blur" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+
+  <!-- ── Background ─────────────────────────────── -->
+  <rect width="48" height="48" rx="13" fill="url(#bg)"/>
+  <rect width="48" height="48" rx="13" fill="url(#gl)"/>
+  <rect width="48" height="48" rx="13" fill="url(#sh)"/>
+
+  <!-- Subtle inner rim -->
+  <rect x="0.75" y="0.75" width="46.5" height="46.5" rx="12.5"
+        stroke="white" stroke-opacity="0.10" stroke-width="1"/>
+
+  <!--
+    ── A mark ─────────────────────────────────────
+    Outer A: apex(24,8) → outer feet (8,41)/(40,41)
+             with 8px-wide legs and crossbar indent at y=32
+    Void:    upward triangle (24,13)→(19,28)→(29,28)
+             The negative space reads as an upward arrow ▲
+    fill-rule="evenodd" subtracts the void from the outer shape
+  -->
+
+  <!-- Glow layer (blurred indigo, behind the white A) -->
+  <path fill-rule="evenodd"
+    d="M 24,8 L 40,41 L 32,41 L 30,32 L 18,32 L 16,41 L 8,41 Z
+       M 24,13 L 19,28 L 29,28 Z"
+    fill="#818cf8" opacity="0.55" filter="url(#blur)"/>
+
+  <!-- Sharp layer (crisp white A) -->
+  <path fill-rule="evenodd"
+    d="M 24,8 L 40,41 L 32,41 L 30,32 L 18,32 L 16,41 L 8,41 Z
+       M 24,13 L 19,28 L 29,28 Z"
+    fill="white"/>
+
+  <!-- ── Beacon dot — just above the apex ─────── -->
+  <!-- Outer halo -->
+  <circle cx="24" cy="6.5" r="4.5" fill="url(#dot)"/>
+  <!-- Crisp core -->
+  <circle cx="24" cy="6.5" r="2.2" fill="white"/>
+</svg>
